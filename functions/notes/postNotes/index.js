@@ -2,8 +2,10 @@ const { sendResponse } = require("../../../responses");
 const AWS = require("aws-sdk");
 const { nanoid } = require("nanoid");
 const db = new AWS.DynamoDB.DocumentClient();
+const middy = require("@middy/core");
+const { validateToken } = require("../../../middleware/auth");
 
-async function postNotes(title, text) {
+async function postNotes(userId, title, text) {
   try {
     const timestamp = new Date().toLocaleString("sv-SE", {
       year: "numeric",
@@ -12,7 +14,7 @@ async function postNotes(title, text) {
       hour: "2-digit",
       minute: "2-digit",
     });
-    // Generera id här för att returnera det
+
     const noteId = nanoid();
 
     await db
@@ -20,10 +22,12 @@ async function postNotes(title, text) {
         TableName: "notesTable",
         Item: {
           noteId: noteId,
+          userId: userId,
           title: title.substring(0, 50),
           text: text.substring(0, 300),
           createdAt: timestamp,
-          modifiedAt: timestamp,
+          //modifiedAt endast i putNotes?
+          // modifiedAt: timestamp,
         },
       })
       .promise();
@@ -31,8 +35,6 @@ async function postNotes(title, text) {
     return {
       success: true,
       message: "Note created",
-      title: title,
-      text: text,
       noteId: noteId,
       createdAt: timestamp,
     };
@@ -45,11 +47,20 @@ async function postNotes(title, text) {
   }
 }
 
-exports.handler = async (event) => {
+const handler = async (event) => {
   try {
+    // Hämta userId från JWT token
+    const userId = event.id;
+
+    if (event.error === "401") {
+      return sendResponse(401, {
+        success: false,
+        message: "Invalid token",
+      });
+    }
+
     const { title, text } = JSON.parse(event.body);
 
-    // Validera input
     if (!title?.trim()) {
       return sendResponse(400, {
         success: false,
@@ -58,10 +69,13 @@ exports.handler = async (event) => {
     }
 
     if (!text?.trim()) {
-      return sendResponse(400, { success: false, message: "Text is required" });
+      return sendResponse(400, {
+        success: false,
+        message: "Text is required",
+      });
     }
 
-    const result = await postNotes(title, text);
+    const result = await postNotes(userId, title, text);
 
     return sendResponse(result.success ? 200 : 500, result);
   } catch (error) {
@@ -72,3 +86,6 @@ exports.handler = async (event) => {
     });
   }
 };
+
+// Koppla middleware till handlern
+exports.handler = middy(handler).use(validateToken);
