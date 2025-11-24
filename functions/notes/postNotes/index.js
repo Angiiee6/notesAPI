@@ -13,6 +13,7 @@ async function postNotes(userId, title, text) {
       day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
+      timeZone: "Europe/Stockholm",
     });
 
     const noteId = nanoid();

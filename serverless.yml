@@ -13,6 +13,7 @@ build:
     - aws-sdk
 
 functions:
+  #Notes functions
   getNotes:
     handler: functions/notes/getNotes/index.handler
     events:
@@ -25,13 +26,11 @@ functions:
       - httpApi:
           path: /notes
           method: post
-          # cors: true
-          # authorizer: auth
   putNotes:
     handler: functions/notes/putNotes/index.handler
     events:
       - httpApi:
-          path: /notes
+          path: /notes/{id}
           method: put
   deleteNotes:
     handler: functions/notes/deleteNotes/index.handler
@@ -45,6 +44,8 @@ functions:
       - httpApi:
           path: /notes/{id}/restore
           method: put
+
+  #User functions
   signUp:
     handler: functions/user/signUp/index.handler
     events:
