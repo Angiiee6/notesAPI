@@ -5,22 +5,37 @@ const db = new AWS.DynamoDB.DocumentClient();
 
 async function postNotes(title, text) {
   try {
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date().toLocaleString("sv-SE", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    // Generera id här för att returnera det
+    const noteId = nanoid();
 
     await db
       .put({
         TableName: "notesTable",
         Item: {
-          noteId: nanoid(),
+          noteId: noteId,
           title: title.substring(0, 50),
           text: text.substring(0, 300),
           createdAt: timestamp,
-          // modifiedAt: timestamp,
+          modifiedAt: timestamp,
         },
       })
       .promise();
 
-    return { success: true, message: "Note created" };
+    return {
+      success: true,
+      message: "Note created",
+      title: title,
+      text: text,
+      noteId: noteId,
+      createdAt: timestamp,
+    };
   } catch (error) {
     console.log("Database error:", error);
     return {
