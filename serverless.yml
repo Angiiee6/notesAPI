@@ -1,0 +1,85 @@
+org: ${env:SERVERLESS_ORG}
+service: notesAPI
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  iam:
+    role: ${env:IAM_ROLE}
+  region: eu-north-1
+
+build:
+  external:
+    - aws-sdk
+
+functions:
+  getNotes:
+    handler: functions/notes/getNotes/index.handler
+    events:
+      - httpApi:
+          path: /notes
+          method: get
+  postNotes:
+    handler: functions/notes/postNotes/index.handler
+    events:
+      - httpApi:
+          path: /notes
+          method: post
+          # cors: true
+          # authorizer: auth
+  putNotes:
+    handler: functions/notes/putNotes/index.handler
+    events:
+      - httpApi:
+          path: /notes
+          method: put
+  deleteNotes:
+    handler: functions/notes/deleteNotes/index.handler
+    events:
+      - httpApi:
+          path: /notes/{id}
+          method: delete
+  restoreNotes:
+    handler: functions/notes/restoreNotes/index.handler
+    events:
+      - httpApi:
+          path: /notes/{id}/restore
+          method: put
+  signUp:
+    handler: functions/user/signUp/index.handler
+    events:
+      - httpApi:
+          path: /user/signUp
+          method: POST
+
+  login:
+    handler: functions/user/login/index.handler
+    events:
+      - httpApi:
+          path: /user/login
+          method: POST
+resources:
+  Resources:
+    notesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: notesTable
+        AttributeDefinitions:
+          - AttributeName: noteId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: noteId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    userTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: userTable
+        AttributeDefinitions:
+          - AttributeName: email
+            AttributeType: S
+        KeySchema:
+          - AttributeName: email
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
