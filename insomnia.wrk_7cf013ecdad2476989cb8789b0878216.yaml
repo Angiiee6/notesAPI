@@ -1,0 +1,242 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: notesAPI
+meta:
+  id: wrk_7cf013ecdad2476989cb8789b0878216
+  created: 1763991687647
+  modified: 1764025014814
+  description: ""
+collection:
+  - name: users
+    meta:
+      id: fld_8beca2ddc97d4d079ff0549aafbf598e
+      created: 1763991706320
+      modified: 1763991706320
+      sortKey: -1763991706320
+      description: ""
+    children:
+      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/user/signUp
+        name: signUp
+        meta:
+          id: req_628cbe6c9d404186b519931dc4c8f428
+          created: 1763991687668
+          modified: 1764022018954
+          isPrivate: false
+          description: ""
+          sortKey: -1763991720135
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "angie@test.com",
+              "password": "1234"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/user/login
+        name: login
+        meta:
+          id: req_37caaae24033443aa72fd3577ac5f1cc
+          created: 1763991720035
+          modified: 1764022177647
+          isPrivate: false
+          description: ""
+          sortKey: -1763991720035
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "angie@test.com",
+              "password": "1234"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: notes
+    meta:
+      id: fld_4aedab19a8fe45c0a2e398a720b199e6
+      created: 1763991713042
+      modified: 1763991713042
+      sortKey: -1763991713042
+      description: ""
+    children:
+      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/notes
+        name: getNote
+        meta:
+          id: req_0c470507f65b45c1b6cc1f7696798e63
+          created: 1763995185149
+          modified: 1764022220748
+          isPrivate: false
+          description: ""
+          sortKey: -1763999231752
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwMjIxODB9.7R-PjGzOGYC6hU8HCZJeVt58qKIISQFNxuEVtmM5YsE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/notes
+        name: postNotes
+        meta:
+          id: req_df7db8c03c4042c2aaf6ef04680de3d8
+          created: 1763999231652
+          modified: 1764024368629
+          isPrivate: false
+          description: ""
+          sortKey: -1763999231727
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "måndag-NATT",
+              "text": "nu testar jag vilken tid det blir"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwMjIxODB9.7R-PjGzOGYC6hU8HCZJeVt58qKIISQFNxuEVtmM5YsE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/notes/mdZl_vmkFirBDO8HS-aRG
+        name: putNotes
+        meta:
+          id: req_c6d5422b859440df91a6663024019bc1
+          created: 1764022960975
+          modified: 1764023249478
+          isPrivate: false
+          description: ""
+          sortKey: -1763999231702
+        method: PUT
+        body:
+          mimeType: application/json
+          text: >-
+            {
+              "title": "Måndag",
+              "text": "Idag fick jag äntligen till det med postNotes med user!!!!!!!!!!!!!!!"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwMjIxODB9.7R-PjGzOGYC6hU8HCZJeVt58qKIISQFNxuEVtmM5YsE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: deteleNotes
+        meta:
+          id: req_de71ae90954c4a339d362f8aa8e330c9
+          created: 1764024485481
+          modified: 1764024502561
+          isPrivate: false
+          description: ""
+          sortKey: -1763999231602
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: restoreNotes
+        meta:
+          id: req_fb49d8e24ab7424ba96e8771b6cdf715
+          created: 1764024513152
+          modified: 1764024524232
+          isPrivate: false
+          description: ""
+          sortKey: -1763999231502
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_f94a512986fe61b5a8d56e508afba4e04b3f0c00
+    created: 1763991687666
+    modified: 1763991687666
+environments:
+  name: Base Environment
+  meta:
+    id: env_f94a512986fe61b5a8d56e508afba4e04b3f0c00
+    created: 1763991687664
+    modified: 1763991687664
+    isPrivate: false
