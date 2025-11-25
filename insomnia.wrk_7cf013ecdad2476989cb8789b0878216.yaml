@@ -207,29 +207,6 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/notes/HH5cttiSauFFo_aNSaAzY/restore
-        name: restoreNotes
-        meta:
-          id: req_fb49d8e24ab7424ba96e8771b6cdf715
-          created: 1764024513152
-          modified: 1764061866320
-          isPrivate: false
-          description: ""
-          sortKey: -1763999231502
-        method: PUT
-        headers:
-          - name: User-Agent
-            value: insomnia/12.1.0
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
