@@ -59,6 +59,19 @@ const handler = async (event) => {
         message: "Note ID is required",
       });
     }
+    if (!title?.trim()) {
+      return sendResponse(400, {
+        success: false,
+        message: "Title is required",
+      });
+    }
+
+    if (!text?.trim()) {
+      return sendResponse(400, {
+        success: false,
+        message: "Text is required",
+      });
+    }
 
     const result = await updateNote(noteId, userId, title, text);
     return sendResponse(result.success ? 200 : 500, result);
