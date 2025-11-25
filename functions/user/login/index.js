@@ -49,16 +49,3 @@ exports.handler = async (event) => {
   if (result.success) return sendResponse(200, result);
   else return sendResponse(400, result);
 };
-
-// 200 (OK) - Om servern lyckats med att göra det som resursen motsvarar.
-
-// 400 (Bad request) - Om requestet är felaktigt gjort, så att servern inte kan fortsätta. Exempel: Att frontend skickar med felaktig data i body till servern.
-
-// 401 (Unauthorized) - Om giltig inloggning inte finns
-//Om ej token skickas med i requestet eller om token är ogiltig.
-
-// 404 (Not found) - Om resursen eller objektet som efterfrågas inte finns.
-// Exempel: Om en användare försöker hämta en anteckning som inte finns i databasen.
-
-// 500 (internal server error) - Om ett fel inträffar på servern. Använd catch för att fånga det.
-// Exempel: Om databasen är nere eller om ett oväntat fel inträffar i koden.

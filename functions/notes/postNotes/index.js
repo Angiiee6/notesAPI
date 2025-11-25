@@ -27,8 +27,6 @@ async function postNotes(userId, title, text) {
           title: title.substring(0, 50),
           text: text.substring(0, 300),
           createdAt: timestamp,
-          //modifiedAt endast i putNotes?
-          // modifiedAt: timestamp,
         },
       })
       .promise();
@@ -50,7 +48,6 @@ async function postNotes(userId, title, text) {
 
 const handler = async (event) => {
   try {
-    // Hämta userId från JWT token
     const userId = event.id;
 
     if (event.error === "401") {
@@ -88,5 +85,4 @@ const handler = async (event) => {
   }
 };
 
-// Koppla middleware till handlern
 exports.handler = middy(handler).use(validateToken);

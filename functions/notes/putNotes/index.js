@@ -45,7 +45,7 @@ async function updateNote(noteId, userId, title, text) {
 
 const handler = async (event) => {
   try {
-    const userId = event.id; // Från auth middleware
+    const userId = event.id;
     const noteId = event.pathParameters.id;
     const { title, text } = JSON.parse(event.body);
 
@@ -68,5 +68,4 @@ const handler = async (event) => {
   }
 };
 
-// Koppla middleware till handlern
 exports.handler = middy(handler).use(validateToken);

@@ -13,7 +13,7 @@ build:
     - aws-sdk
 
 functions:
-  #Notes functions
+  # MARK: Notes functions
   getNotes:
     handler: functions/notes/getNotes/index.handler
     events:
@@ -45,7 +45,7 @@ functions:
           path: /notes/{id}/restore
           method: put
 
-  #User functions
+  # MARK: User functions
   signUp:
     handler: functions/user/signUp/index.handler
     events:
@@ -59,6 +59,8 @@ functions:
       - httpApi:
           path: /user/login
           method: POST
+
+# MARK: Tables
 resources:
   Resources:
     notesTable:
