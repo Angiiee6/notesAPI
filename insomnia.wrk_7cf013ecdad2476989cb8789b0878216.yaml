@@ -88,7 +88,7 @@ collection:
         meta:
           id: req_0c470507f65b45c1b6cc1f7696798e63
           created: 1763995185149
-          modified: 1764022220748
+          modified: 1764059557008
           isPrivate: false
           description: ""
           sortKey: -1763999231752
@@ -103,7 +103,7 @@ collection:
             value: insomnia/12.0.0
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwMjIxODB9.7R-PjGzOGYC6hU8HCZJeVt58qKIISQFNxuEVtmM5YsE
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwNTk1Mzh9.e08ulvl5ARaxr_08zESxlfBzhuywU0p-1h0cwLGzToM
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -117,7 +117,7 @@ collection:
         meta:
           id: req_df7db8c03c4042c2aaf6ef04680de3d8
           created: 1763999231652
-          modified: 1764024368629
+          modified: 1764061774535
           isPrivate: false
           description: ""
           sortKey: -1763999231727
@@ -126,8 +126,8 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "title": "måndag-NATT",
-              "text": "nu testar jag vilken tid det blir"
+              "title": "tisdag",
+              "text": "denna note ska raderas"
             }
         headers:
           - name: Content-Type
@@ -137,7 +137,7 @@ collection:
         authentication:
           type: bearer
           disabled: false
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwMjIxODB9.7R-PjGzOGYC6hU8HCZJeVt58qKIISQFNxuEVtmM5YsE
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwNTk1Mzh9.e08ulvl5ARaxr_08zESxlfBzhuywU0p-1h0cwLGzToM
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -151,7 +151,7 @@ collection:
         meta:
           id: req_c6d5422b859440df91a6663024019bc1
           created: 1764022960975
-          modified: 1764023249478
+          modified: 1764061829080
           isPrivate: false
           description: ""
           sortKey: -1763999231702
@@ -161,7 +161,7 @@ collection:
           text: >-
             {
               "title": "Måndag",
-              "text": "Idag fick jag äntligen till det med postNotes med user!!!!!!!!!!!!!!!"
+              "text": "Idag fick jag äntligen till det med postNotes med user!!!"
             }
         headers:
           - name: Content-Type
@@ -172,7 +172,7 @@ collection:
             disabled: false
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwMjIxODB9.7R-PjGzOGYC6hU8HCZJeVt58qKIISQFNxuEVtmM5YsE
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwNTk1Mzh9.e08ulvl5ARaxr_08zESxlfBzhuywU0p-1h0cwLGzToM
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -181,12 +181,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: ""
+      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/notes/HH5cttiSauFFo_aNSaAzY
         name: deteleNotes
         meta:
           id: req_de71ae90954c4a339d362f8aa8e330c9
           created: 1764024485481
-          modified: 1764024502561
+          modified: 1764061855599
           isPrivate: false
           description: ""
           sortKey: -1763999231602
@@ -196,6 +196,9 @@ collection:
             value: insomnia/12.1.0
             description: ""
             disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVTTmE3aHhaR1ZDeXRpTU5ES3czOCIsImVtYWlsIjoiYW5naWVAdGVzdC5jb20iLCJpYXQiOjE3NjQwNTk1Mzh9.e08ulvl5ARaxr_08zESxlfBzhuywU0p-1h0cwLGzToM
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -204,16 +207,16 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: ""
+      - url: https://ajshh3gtla.execute-api.eu-north-1.amazonaws.com/notes/HH5cttiSauFFo_aNSaAzY/restore
         name: restoreNotes
         meta:
           id: req_fb49d8e24ab7424ba96e8771b6cdf715
           created: 1764024513152
-          modified: 1764024524232
+          modified: 1764061866320
           isPrivate: false
           description: ""
           sortKey: -1763999231502
-        method: GET
+        method: PUT
         headers:
           - name: User-Agent
             value: insomnia/12.1.0
